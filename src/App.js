@@ -10,8 +10,9 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import NotPage from './pages/NotPage';
 
+
 const ProtectedRoute = ({ children }) => {
-  const { user } = useAuth();
+  const { user } = useAuth()
   const location = useLocation();
   if (!user) {
    return <Navigate to="/login" state={{ from: location }} replace />;
