@@ -1,39 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 
 function Users() {
-    const [users, setUsers] = useState([]);
+    const [users, setUser] = useState([])
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/users") 
-            .then(res => res.json())
-            .then(data => setUsers(data))
-            .catch(error => console.error("Error fetching data: ", error));
-    }, []);
+        fetch("https://jsonplaceholder.org/users")
+            .then(res => res.json()
+                .then(data => setUser(data)))
+    }, [])
 
-    const listUsers = users.map((u) => (
-        <tr key={u.id}>
+    const listUser = users.map((u) => (
+        <tr key={u.id} className="border-b">
             <td className="px-5 py-5 text-sm">{u.id}</td>
-            <td className="px-5 py-5 text-sm">{u.name}</td> {/* เปลี่ยน firstname เป็น name */}
+            <td className="px-5 py-5 text-sm">{u.firstname}</td>
             <td className="px-5 py-5 text-sm">{u.email}</td>
-            <td className="px-5 py-5 text-sm">{u.address.street}</td> 
-            <td className="px-5 py-5 text-sm">{u.address.city}</td> {/* เพิ่ม city */}
+            <td className="px-5 py-5 text-sm">{u.birthDate}</td>
+            <td className="px-5 py-5 text-sm">{u.address.street}</td>
         </tr>
-    ));
-
-    return (  
+    ))
+    return (
         <>
-            <h1 className="text-red-300 font-bold">แสดงชื่อผู้ใช้งาน</h1>
-            <table className="min-w-full bg-white border border-gray-300">
-                <thead>
+            <h1 className="text-red-300 font-blod">แสดงรายชื่อผู้ใช้งาน</h1>
+            <table className="min-w-full">
+                <thead >
                     <tr>
-                        <th className="px-5 py-3 bg-gray-200 text-gray-600 text-left">ID</th> 
-                        <th className="px-5 py-3 bg-gray-200 text-gray-600 text-left">Name</th> 
-                        <th className="px-5 py-3 bg-gray-200 text-gray-600 text-left">Email</th> 
-                        <th className="px-5 py-3 bg-gray-200 text-gray-600 text-left">Street</th>
-                        <th className="px-5 py-3 bg-gray-200 text-gray-600 text-left">City</th> {/* เพิ่ม City */}
+                        <th className="px-5 py-3 bg-gray-200 text-gray-600 text-left">ID</th>
+                        <th className="px-5 py-3 bg-gray-200 text-gray-600 text-left">Name</th>
+                        <th className="px-5 py-3 bg-gray-200 text-gray-600 text-left">Email</th>
+                        <th className="px-5 py-3 bg-gray-200 text-gray-600 text-left">birthDate</th>
+                        <th className="px-5 py-3 bg-gray-200 text-gray-600 text-left">street</th>
                     </tr>
                 </thead>
-                <tbody>{listUsers}</tbody>
+                <tbody>{listUser}</tbody>
             </table>
         </>
     );
