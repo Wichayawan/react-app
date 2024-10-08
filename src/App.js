@@ -9,16 +9,17 @@ import { AuthProvider, useAuth } from './AuthProvider';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import NotPage from './pages/NotPage';
+import Account from './pages/Account';
 
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth()
   const location = useLocation();
   if (!user) {
-   return <Navigate to="/login" state={{ from: location }} replace />;
+  return <Navigate to="/login" state={{ from: location }} replace />;
   }
   return children;
- };
+};
 
 const LayoutAdmin = () => {
   return (
@@ -33,8 +34,8 @@ const LayoutAdmin = () => {
       </div>
       </div>
     </ProtectedRoute>
-   );
- }
+  );
+}
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Routes>
             <Route element={<LayoutAdmin />}>
                 <Route path='/' element={<Dashboard />} />
+                <Route path='/account' element={<Account />} />
                 <Route path='/user' element={<Users />} />
                 <Route path='/about' element={<About />} />
             </Route>
