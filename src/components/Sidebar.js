@@ -12,13 +12,13 @@ export default function Sidebar() {
                     Dashboard
                 </Link>
                 <Link to="/myblog" className="block py-3 px-4 hover:bg-gray-700">
-                    จัดการโพสต์
+                Manage Posts
                 </Link>
                 <Link to="/user" className="block py-3 px-4 hover:bg-gray-700">
                     Users
                 </Link>
                 <Link to="/account" className="block py-3 px-4 hover:bg-gray-700">
-                    จัดการบัญชี
+                    Accounts
                 </Link>
                 <Link to="/about" className="block py-3 px-4 hover:bg-gray-700">
                     About

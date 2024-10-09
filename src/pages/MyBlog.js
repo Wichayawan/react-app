@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 
-
 function MyBlog() {
     const { user } = useAuth();
     const [blogs, setBlogs] = useState([]);
@@ -31,7 +30,7 @@ function MyBlog() {
         if (window.confirm("คุณต้องการลบโพสนี้หรือไม่?")) {
             axios.delete(`http://localhost:4000/post/${blogid}`)
                 .then((res) => {
-                     alert("ลบโพสสำเร็จ");
+                    alert("ลบโพสสำเร็จ");
                     getBlogs(); // เรียกข้อมูลใหม่หลังจากลบเสร็จ
                 })
                 .catch((error) => {
@@ -69,12 +68,11 @@ function MyBlog() {
 
     return (
         <>
-            <div className="mx-auto p-4">
-
-                <h2 className="text-2xl text-teal-700 mb-10 ">แสดงรายการโพสทั้งหมด</h2>
+            <div className="min-h-screen bg-gray-50 mx-auto p-4"> {/* พื้นหลังสีชมพูแบบมินิมอล */}
+                <h2 className="text-2xl text-teal-700 mb-10">แสดงรายการโพสทั้งหมด</h2>
                 <div className="flex justify-end mb-4">
                     <Link to={'/new-post'}>
-                        <button className="p-2 bg-blue-500 hover:bg-blue-400 text-white rounded">สร้างใหม่</button>
+                        <button className="p-2 bg-pink-500 hover:bg-pink-400 text-white rounded">สร้างใหม่</button>
                     </Link>
                 </div>
                 <div className="overflow-x-auto">

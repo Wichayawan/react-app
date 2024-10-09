@@ -59,7 +59,7 @@ function AddBlog() {
                     </select>
                 </div>
                 <div className="mb-4">
-                    <button type="submit" className="p-2 rounded bg-blue-500 hover:bg-blue-400 text-white">บันทึก</button>
+                    <button type="submit" className="p-2 rounded bg-pink-500 hover:bg-pink-400 text-white">บันทึก</button>
                 </div>
 
             </form>
